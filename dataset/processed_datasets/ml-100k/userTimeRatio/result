@@ -1,0 +1,149 @@
+
+
+Dataset=ml-100k, numFactor=32
+
+                       AUC         Precision       Recall      NDCG        lr      lam     dp_keep     in  tar  rnn_unit       filter  capsule
+CapsuleFC-col(user)    0.8645      0.0737          0.7371      0.4460      0.001   0.01    0.8         2   1                   15      1
+CapsuleFC-col          0.8625      0.0733          0.7327      0.4421      0.001   0.01    0.8         3   1                   5       1
+CapsuleFC-row(user)    0.8559      0.0719          0.7195      0.4352      0.001   0.01    0.8         3   1
+RUM(I)                 0.8510      0.0710          0.7096      0.4226      0.001   0.01    0.8         2   1
+Caser                  0.8508      0.0710          0.7096      0.4151      0.001           0.7         2   2
+Capsule+MN             0.8493      0.0706          0.7063      0.4283      0.001   0.0     0.8         2   1
+GRU4Rec                0.8442      0.0696          0.6964      0.4129      0.001           0.5                  64  seq_len=5
+CapsuleSeqPlus         0.8348      0.0678          0.6777      0.4004      0.001   0.01    0.8         1   2
+BPR                    0.8024      0.0608          0.6083      0.3332      0.01    0.01
+RUM(F)                 0.8012      0.0609          0.6095      0.3502      0.001   0.0     0.8         feature_num = 10
+UserKNN                0.7275      0.0457          0.4576      0.2532      knn=10  sim=cos
+ItemKNN                0.6734      0.0348          0.3487      0.1737      knn=200 sim=cos
+
+
+                    AUC         Precision       Recall      NDCG        lr      lam     dp_keep     in  tar  rnn_unit
+    CapsuleSeq-H        0.8625      0.0733          0.7327      0.4421      0.001   0.01    0.8         3   1
+    CapsuleSeq-V-H      0.8612      0.0730          0.7305      0.4447      0.001   0.01    0.8         3   2
+    Caser               0.8508      0.0710          0.7096      0.4151      0.001           0.7         2   2
+    Capsule-pred1       0.8470      0.0702          0.7019      0.4124      0.001   0.01    \           3   5
+    GRU4Rec_modify      0.8442      0.0696          0.6964      0.4129      0.001           0.5                  64  seq_len=5
+    Capsule-pred2       0.8367      0.0681          0.6810      0.4012      0.001   0.01    \           3   5
+    BPR                 0.8024      0.0608          0.6083      0.3332      0.01    0.01
+    GRU4Rec_raw         0.7455      0.0498          0.4983      0.2485      0.001           0.5                  64  seq_len=1
+    UserKNN             0.7275      0.0457          0.4576      0.2532      knn=10  sim=cos
+    ItemKNN             0.6734      0.0348          0.3487      0.1737      knn=200 sim=cos
+
+
+CapsuleSeq-H        0.8625      0.0733          0.7327      0.4421      0.001   0.01    0.8         3   1
+CapsuleSeq-V-H      0.8612      0.0730          0.7305      0.4447      0.001   0.01    0.8         3   2
+Caser+GRU(1)        0.8526      0.0713          0.7129      0.4217      0.001           0.8         7   1    64
+Caser+GRU(2)        0.8510      0.0710          0.7096      0.4236      0.001           0.9         3   1    64
+Caser+GRU(POS-l)    0.8516      0.0711          0.7107      0.4270      0.001           0.8         3   1    64
+Caser+GRU(POS-l-g)  0.8523      0.0713          0.7129      0.4281      0.001           0.7         9   1    64
+Caser               0.8508      0.0710          0.7096      0.4151      0.001           0.7         2   2
+Capsule-pred        0.8470      0.0702          0.7019      0.4124      0.001   0.01    \           2   5
+GRU4Rec_modify      0.8442      0.0696          0.6964      0.4129      0.001           0.5                  64  seq_len=5
+BPR                 0.8024      0.0608          0.6083      0.3332      0.01    0.01
+GRU4Rec_raw         0.7455      0.0498          0.4983      0.2485      0.001           0.5                  64  seq_len=1
+UserKNN             0.7275      0.0457          0.4576      0.2532      knn=10  sim=cos
+ItemKNN             0.6734      0.0348          0.3487      0.1737      knn=200 sim=cos
+
+
+
+
+Dataset=ml-100k, numFactor=32, in=5, tar=1
+
+                                AUC         Precision       Recall      NDCG        lr      lam     dp_keep     rnn_unit       filter  capsule
+CapsuleFC-col(user)             0.8597      0.0727          0.7272      0.4386      0.001   0.01    0.8                           15      1
+CapsuleFC-col                   0.8497      0.0707          0.7074      0.4187      0.001   0.01    0.8                           15      1
+CapsuleFC-row(user-all)         0.8595      0.0727          0.7272      0.4272      0.001   0.01    0.8                           15      10
+CapsuleFC-row(user-all-time)    0.8575      0.0723          0.7228      0.4298      0.001   0.01    0.8       cap_1:10, cap_2:10, cap_time:2
+CapsultFC-row(user-1)           0.8513      0.0711          0.7107      0.4165      0.001   0.01    0.8
+CapsultFC-row(user-2)           0.8463      0.0701          0.7008      0.4076      0.001   0.01    0.8
+CapsultFC-row                   0.8528      0.0714          0.7140      0.4167      0.001   0.01    0.8
+Caser                           0.8434      0.0694          0.6942      0.4218      0.001   0.01    0.8                        0.001           0.7
+GRU4Rec                         0.8396      0.0686          0.6865      0.4167      0.001           0.5         64             seq_len=5
+RUM(I)                          0.8393      0.0686          0.6865      0.4012      0.001   0.01    0.8
+BPR                             0.8024      0.0608          0.6083      0.3332      0.01    0.01
+UserKNN                         0.7275      0.0457          0.4576      0.2532      knn=10  sim=cos
+ItemKNN                         0.6734      0.0348          0.3487      0.1737      knn=200 sim=cos
+
+
+Dataset=ml-100k, numFactor=32, in=5, tar=1
+
+                                             AUC         Precision       Recall      NDCG        lr      lam     dp_keep     rnn_unit       filter  capsule
+1  CapsuleConv-col(em, no-user, no time)     0.8619      0.0732          0.7316      0.4406      filter_num: 8   capsule_num: 4, 4, 16
+2  * CapsuleConv-col(dyn, no-user, no time)  0.8513      0.0710          0.7103      0.4171      filter_num: 8   capsule_num: 4, 4, 16
+3  * CapsuleConv-col(time(user))             0.8555      0.0719          0.7188      0.4271      capsule_num: 4, 4, 16
+4  * CapsuleConv-col(time(no-user))          0.8574      0.0723          0.7231      0.4268      capsule_num: 4, 4, 16
+5  CapsuleFC-row(user-all)                   0.8593      0.0726          0.7263      0.4330      0.001   0.01    0.8                           15      10
+6  CapsultFC-row(no-user)                    0.8575      0.0723          0.7231      0.4253      0.001   0.01    0.8
+7  CapsuleFC-col(user, time)                 0.8520      0.0711          0.7114      0.4353      0.001   0.01    0.8                           15      1
+8  CapsuleFC-col(no user, time)              0.8526      0.0712          0.7125      0.4264      0.001   0.01    0.8                           15      1
+9  CapsuleFC-col(user, no time)              0.8460      0.0700          0.6996      0.4113      0.001   0.01    0.8                           15      1
+10 CapsuleFC-col(no user, no time)           0.8501      0.0708          0.7082      0.4114      0.001   0.01    0.8                           15      1
+11 Caser                                     0.8476      0.0703          0.7029      0.4191      0.001   0.01    0.8                        0.001           0.7
+12 GRU4Rec                                   0.8460      0.0700          0.6997      0.4155      0.001           0.5         64             seq_len=5
+13 RUM(I)                                    0.8440      0.0695          0.6954      0.4114      0.001   0.01    0.8
+
+
+
+EnNeng PC: user as data point, 1
+ZhouHuan: user as data point, 2
+Zhouxin: user as miu bias
+Me: user reg cost
+
+
+Dataset=ml-100k, numFactor=32, in=5, tar=1
+
+                                             AUC         Precision       Recall      NDCG        lr      lam     dp_keep     rnn_unit       filter  capsule
+1  CapsuleConv(no-user)                      0.8619      0.0732          0.7316      0.4406      filter_num: 8   capsule_num: 4, 4, 8
+2  CapsuleConv(user->data point)             0.8582      0.0724          0.7242      0.4346      filter_num: 8   capsule_num: 4, 4, 8   st_b=True, share_b=True, else=False
+3  CapsuleConv(user->miu bias)               0.8293      0.0667          0.6667      0.3774      capsule_num: 4, 4, 8
+4  CapsuleConv(user->new miu bias)           0.8365      0.0681          0.6805      0.3995      capsule_num: 4, 4, 8
+5  CapsuleConv(user->reg cost)               0.8577      0.0723          0.7231      0.4322      capsule_num: 4, 4, 8
+6  CapsuleConv(add CNN+Pooling)              0.8634      0.0735          0.7348      0.4445      filter_num=4, capsule_num: 4, 8, 16
+7  Caser                                     0.8476      0.0703          0.7029      0.4191      0.001   0.01    0.8                        0.001           0.7
+8  GRU4Rec                                   0.8460      0.0700          0.6997      0.4155      0.001           0.5         64             seq_len=5
+9  RUM(I)                                    0.8440      0.0695          0.6954      0.4114      0.001   0.01    0.8
+
+
+
+
+
+Dataset=ml-100k, numFactor=32, in=5, tar=1
+
+                                              AUC         Precision       Recall      NDCG        lr      lam     dp_keep     rnn_unit       filter  capsule
+1   CapsuleConv(CNN+Pooling)                  0.8634      0.0735          0.7348      0.4445      filter_num=4, capsule_num: 4, 8, 16
+
+2   CapsuleConv(user->data point)             0.8582      0.0724          0.7242      0.4346      filter_num: 8   capsule_num: 4, 4, 8   st_b=True, share_b=True, else=False
+3   CapsuleConv(user->miu bias)               0.8365      0.0681          0.6805      0.3995      capsule_num: 4, 4, 8
+4   CapsuleConv(user->reg cost)               0.8577      0.0723          0.7231      0.4322      capsule_num: 4, 4, 8
+
+5   CapsuleConv(1+cluster->data point)
+6   CapsuleConv(1+cluster->miu bias)
+7   CapsuleConv(1+cluster->reg cost) *        0.8602      0.0728          0.7284      0.4275      capsule_num: 4, 8, 16, num_cluster=30
+
+8   CapsuleConv(1+pooling->data point) *      0.8604      0.0728          0.7284      0.4389      filter_num: 4   capsule_num: 4, 8, 16   st_b,c=True, share_c=True, else=False
+9   CapsuleConv(1+pooling->miu bias) *        0.8533      0.0715          0.7146      0.4228      capsule_num: 4, 8, 8
+10  CapsuleConv(1+pooling->reg cost) *        0.8592      0.0726          0.7263      0.4373      capsule_num: 8, 4, 4
+
+11  Caser                                     0.8476      0.0703          0.7029      0.4191      0.001   0.01    0.8                        0.001           0.7
+12  GRU4Rec                                   0.8460      0.0700          0.6997      0.4155      0.001           0.5         64             seq_len=5
+13  RUM(I)                                    0.8440      0.0695          0.6954      0.4114      0.001   0.01    0.8
+
+
+
+
+                                              AUC         Precision       Recall      NDCG        lr      lam     dp_keep     rnn_unit       filter  capsule
+1   CapsuleConv(None)                         0.8533      0.0715          0.7146      0.4228      filter_num=4, capsule_num: 4, 4, 4
+1   CapsuleConv(CNN+Pooling)                  0.8565      0.0721          0.7210      0.4246
+1   CapsuleConv(CNN+Pooling cost)             0.8649      0.0738          0.7380      0.4347
+1   CapsuleConv(CNN+Pooling point)            0.8623      0.0733          0.7327      0.4328
+1   CapsuleConv(CNN+Pooling bias)             0.8427      0.0693          0.6933      0.4067
+
+
+11  Caser                                     0.8476      0.0703          0.7029      0.4191      0.001   0.01    0.8                        0.001           0.7
+12  GRU4Rec                                   0.8460      0.0700          0.6997      0.4155      0.001           0.5         64             seq_len=5
+13  RUM(I)                                    0.8440      0.0695          0.6954      0.4114      0.001   0.01    0.8
+
+FPMC                                          0.8321      0.0672          0.6720      0.3789
+BPR                                           0.8024      0.0608          0.6083      0.3332      0.01    0.01
+UserKNN                                       0.7275      0.0457          0.4576      0.2532      knn=10  sim=cos
+ItemKNN                                       0.6734      0.0348          0.3487      0.1737      knn=200 sim=cos
