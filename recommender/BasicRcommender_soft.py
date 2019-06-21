@@ -15,6 +15,7 @@ class BasicRecommender_soft:
 
         self.config = config
         self.name = 'BasicRecommender'
+        self.using_model = config['using_model']
         tf.set_random_seed(config['random_seed'])
         random.seed(config['random_seed'])
 
@@ -53,6 +54,7 @@ class BasicRecommender_soft:
         self.va_loss = None
         self.va_loss2 = None
         self.neg_num = config['negative_numbers']
+        self.save_path = config['save_path']
         self.save_model = config['save_model']
         self.load_model = config['load_model']
         self.saver = None
@@ -188,12 +190,21 @@ class BasicRecommender_soft:
         pass
 
     def trainModel(self):
-        self.sess = tf.InteractiveSession()
-
         self.optimizer = tf.train.AdamOptimizer(self.learnRate, name='Adam_optimizer').minimize(self.cost)
-        self.sess.run(tf.global_variables_initializer())
 
+        self.sess = tf.InteractiveSession()
+        self.sess.run(tf.global_variables_initializer())
         self.saver = tf.train.Saver()
+
+        if self.load_model:
+            cur_save_path = './' + self.save_path + '/' + self.using_model + '/' + self.fileName
+            ckpt = tf.train.get_checkpoint_state(cur_save_path)
+            if ckpt and ckpt.model_checkpoint_path:
+                self.saver.restore(self.sess, ckpt.model_checkpoint_path)
+                print('model has been loaded\n')
+            else:
+                print('no model has been loaded\n')
+                pass
 
         for epochId in range(self.maxIter):
             start = time.time()
@@ -219,23 +230,13 @@ class BasicRecommender_soft:
 
         tf.reset_default_graph()
 
-    def loadModel(self):
-        self.sess = tf.InteractiveSession()
-        new_saver = tf.train.import_meta_graph("./ksoft_model-5.meta")
-        new_saver.restore(self.sess, "./ksoft_model-5")
-
-        self.evaluateRanking(1, 1)
-
     def trainEachBatch(self, epochId, batchId):
         pass
 
     def run(self):
         self.printInfo()
         self.buildModel()
-        if self.load_model:
-            self.loadModel()
-        else:
-            self.trainModel()
+        self.trainModel()
 
     def getTrainData(self, batchId):
         pass
@@ -391,14 +392,17 @@ class BasicRecommender_soft:
             self.best_NDCG = newNDCG
             self.best_NDCG_EpochId = epochId
             self.best_NDCG_BatchId = batchId
-            self.saver.save(self.sess, './ksoft_model', global_step=epochId)
+            if self.save_model:
+                cur_save_path = './' + self.save_path + '/' + self.using_model + '/' + self.fileName
+                if not os.path.exists(cur_save_path):
+                    os.makedirs(cur_save_path)
+                ckpt_path = cur_save_path + '/' + 'model'
+                self.saver.save(self.sess, ckpt_path, global_step=epochId)
 
         if newAUC > self.best_AUC:
             self.best_AUC = newAUC
             self.best_AUC_EpochId = epochId
             self.best_AUC_BatchId = batchId
-            if self.config['save_model']:
-                self.saveWeight()
 
         if newPrecision > self.best_Precision:
             self.best_Precision = newPrecision
