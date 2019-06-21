@@ -29,21 +29,24 @@ if __name__ == '__main__':
         'item_fc_dim': [32],
         'early_stop': True,
         'random_seed': 123,
-        'save_model': False,
         'useRating': True,
         'familiar_user_num': 5,
         'negative_numbers': 25,
         'eval_item_num': 500,
-        'trainBatchSize': 500,
-        'testBatchSize': 500,
-        'numFactor': 100,
+        'trainBatchSize': 512,
+        'testBatchSize': 512,
+        'numFactor': 128,
         'topN': 10,
         'numK': 10,
         'need_process_data': False,
         'csv': True,
         'test_sparse_user': True,
         'merge_sparse_user': False,
-        'load_model': False
+        'khsoft': False,
+        'save_path': 'saved_model',
+        'save_model': True,
+        'load_model': True,
+        'using_model': 'Caser'
     }
 
     for fileName in ['ml-100k']:

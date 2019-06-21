@@ -16,26 +16,26 @@ if __name__ == '__main__':
         'threshold': 0,
         'learnRate': 0.002,
         'maxIter': 1000,
-        'trainBatchSize': 500,
-        'testBatchSize': 500,
+        'trainBatchSize': 512,
+        'testBatchSize': 512,
         'numFactor': 100,
         'topN': 10,
         'factor_lambda': 0.01,
         'goal': 'ranking',
         'verbose': False,
         'seq_length': 5,
+        'input_length': 5,
         'dropout_keep': 0.45,
         'dropout_item': 0.5,
         'dropout_context1': 0.5,
         'dropout_context2': 0.5,
-        'rnn_unit_num': 100,
+        'rnn_unit_num': 128,
         'rnn_layer_num': 1,
         'rnn_cell': 'GRU',
-        'eval_item_num': 500,
+        'eval_item_num': 1000,
         'seq_direc': 'hor',
         'early_stop': True,
         'random_seed': 123,
-        'save_model': False,
         'useRating': True,
         'loss_type': 'bpr',
         'target_weight': 0.8,
@@ -46,10 +46,14 @@ if __name__ == '__main__':
         'csv': True,
         'test_sparse_user': True,
         'merge_sparse_user': False,
-        'load_model': False
+        'khsoft': False,
+        'save_path': 'saved_model',
+        'save_model': True,
+        'load_model': False,
+        'using_model': 'GRU4Rec'
     }
 
-    for fileName in ['ml-100k']:
+    for fileName in ['newkin-seq']:
         config['fileName'] = fileName
         seq_length = config['seq_length']
 

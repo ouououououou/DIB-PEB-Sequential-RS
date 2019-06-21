@@ -29,7 +29,6 @@ if __name__ == '__main__':
         'early_stop': True,
         'loss': 'bpr',
         'random_seed': 123,
-        'save_model': False,
         'useRating': True,
         'input_length': 5,
         'target_length': 1,
@@ -48,7 +47,7 @@ if __name__ == '__main__':
         'khsoft': False,
         'gru_model': False,
         'decrease soft': True,
-        'loss_type': 'soft',
+        'loss_type': 'PEB',
         'negative_numbers': 25,
         'eval_item_num': 1000,
         'numK': 15,
@@ -60,7 +59,10 @@ if __name__ == '__main__':
         'csv': False,
         'test_sparse_user': True,
         'merge_sparse_user': False,
+        'save_path': 'saved_model',
+        'save_model': True,
         'load_model': False,
+        'using_model': 'DIB-PEB-ASS'
     }
 
     for fileName in ['newkin-seq']:

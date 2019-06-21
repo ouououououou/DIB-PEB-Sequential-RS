@@ -38,7 +38,6 @@ if __name__ == '__main__':
         'cnn_lam': 0.001,
         'mlp_lam': 0.001,
         'capsule_lam': 0.001,
-        'save_model': False,
         'add_time': False,
         'time_user': False,
         'routing_type': 'em',
@@ -53,22 +52,26 @@ if __name__ == '__main__':
         'num_cluster': 10,
         'random_seed': 123,
         'rating_threshold': 100,
-        'trainBatchSize': 500,
-        'testBatchSize': 500,
-        'numFactor': 100,
+        'trainBatchSize': 512,
+        'testBatchSize': 512,
+        'numFactor': 128,
         'topN': 10,
         'familiar_user_num': 5,
         'negative_numbers': 25,
-        'eval_item_num': 500,
-        'numK': 10,
+        'eval_item_num': 1000,
+        'numK': 15,
         'need_process_data': False,
         'csv': True,
         'test_sparse_user': True,
         'merge_sparse_user': False,
-        'load_model': False
+        'khsoft': False,
+        'save_path': 'saved_model',
+        'save_model': True,
+        'load_model': False,
+        'using_model': 'FPMC'
     }
 
-    for fileName in ['ml-100k']:
+    for fileName in ['newkin-seq']:
         config['fileName'] = fileName
 
         dataModel = SequenceDataModel(config)

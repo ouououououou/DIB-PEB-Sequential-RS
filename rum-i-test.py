@@ -19,9 +19,9 @@ if __name__ == '__main__':
         'threshold': 0,
         'learnRate': 0.001,
         'maxIter': 1000,
-        'trainBatchSize': 500,
-        'testBatchSize': 500,
-        'numFactor': 100,
+        'trainBatchSize': 512,
+        'testBatchSize': 512,
+        'numFactor': 128,
         'topN': 10,
         'factor_lambda': 0.01,
         'goal': 'ranking',
@@ -34,25 +34,28 @@ if __name__ == '__main__':
         'item_fc_dim': [32],
         'capsule_num': 1,
         'dynamic_routing_iter': 3,
-        'eval_item_num': 500,
+        'eval_item_num': 1000,
         'filter_num': 5,
         'early_stop': True,
         'loss': 'bpr',
-        'loss_type': 'soft',
+        'loss_type': 'bpr',
         'random_seed': 123,
-        'save_model': False,
         'useRating': True,
         'layers': 1,
-        'negative_numbers': 5,
+        'negative_numbers': 25,
         'familiar_user_num': 5,
         'need_process_data': False,
         'csv': True,
         'test_sparse_user': True,
         'merge_sparse_user': False,
-        'load_model': False
+        'khsoft': False,
+        'save_path': 'saved_model',
+        'save_model': True,
+        'load_model': False,
+        'using_model': 'RUMI'
     }
 
-    for fileName in ['ml-100k']:
+    for fileName in ['newkin-seq']:
         config['fileName'] = fileName
 
         dataModel = SequenceDataModel(config)
