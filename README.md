@@ -29,19 +29,19 @@ python3.6，tensorflow
   
 4参数说明
 ------
-'learnRate': 0.002,         学习速率<br>
-'maxIter': 2000,            迭代次数<br>
-'trainBatchSize': 512,      训练batch_size<br>
-'testBatchSize': 512,       测试batch_size <br>
-'numFactor': 128,           item和user embedding的size<br>
-'cell_numbers': 128,        如果选用GRU为中间网络结构，cell的数量<br>
-'topN': 10,                 test时选TopN进行评测<br>
-'gru_model': False,         设置为True则中间网络结构为GRU，设置为False则为memory network<br>
-'decrease soft': True,      设置为False，损失函数为softmax + cross entropy，设置为True，则采用其他loss<br>
-'loss_type': 'PEB',         在decrease soft为True情况下有效，可选择top1，bpr，neg，PEB<br>
-'negative_numbers': 25,     负样本数量<br>
-'eval_item_num': 1000,      train阶段抽取多少item作为一个评价子集，当数据集为ml-100k时，设置为500左右比较合适<br>
-'numK': 15,                 PEB总共计算了K次概率分布<br>
+'learnRate': 0.002,             学习速率<br>
+'maxIter': 2000,                迭代次数<br>
+'trainBatchSize': 512,          训练batch_size<br>
+'testBatchSize': 512,           测试batch_size <br>
+'numFactor': 128,               item和user embedding的size<br>
+'cell_numbers': 128,            如果选用GRU为中间网络结构，cell的数量<br>
+'topN': 10,                     test时选TopN进行评测<br>
+'gru_model': False,             设置为True则中间网络结构为GRU，设置为False则为memory network<br>
+'decrease soft': True,          设置为False，损失函数为softmax + cross entropy，设置为True，则采用其他loss<br>
+'loss_type': 'PEB',             在decrease soft为True情况下有效，可选择top1，bpr，neg，PEB<br>
+'negative_numbers': 25,         负样本数量<br>
+'eval_item_num': 1000,          train阶段抽取多少item作为一个评价子集，当数据集为ml-100k时，设置为500左右比较合适<br>
+'numK': 15,                     PEB总共计算了K次概率分布<br>
 'save_path': 'saved_model',<br>
 'save_model': True,<br>
 'load_model': False,<br>
