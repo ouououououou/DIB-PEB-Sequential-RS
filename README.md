@@ -12,7 +12,7 @@ python3.6，tensorflow
 2.如何获取训练数据集？
 ------
   自带了ml-100k数据集，存放在dataset/processed_datasets/ml-100k<br>
-  还可以通过以下以下方式获得其余三个数据集<br>
+  还可以通过以下方式获得其余三个数据集<br>
   百度网盘地址：https://pan.baidu.com/s/1X7G3dVEJ0JN7yppcKLY4pA<br>
   下载后解压在dataset/processed_datasets目录下即可<br>
 
@@ -40,7 +40,7 @@ python3.6，tensorflow
 'decrease soft': True,      设置为False，损失函数为softmax + cross entropy，设置为True，则采用其他loss<br>
 'loss_type': 'PEB',         在decrease soft为True情况下有效，可选择top1，bpr，neg，PEB<br>
 'negative_numbers': 25,     负样本数量<br>
-'eval_item_num': 1000,      train阶段抽取多少item作为一个评价子集，当数据集为ml-100k时，该值需要设置为500左右比较合适<br>
+'eval_item_num': 1000,      train阶段抽取多少item作为一个评价子集，当数据集为ml-100k时，设置为500左右比较合适<br>
 'numK': 15,                 PEB总共计算了K次概率分布<br>
 'save_path': 'saved_model',<br>
 'save_model': True,<br>
