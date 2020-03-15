@@ -62,7 +62,8 @@ if __name__ == '__main__':
         'save_path': 'saved_model',
         'save_model': True,
         'load_model': False,
-        'using_model': 'DIB-PEB-ASS'
+        'using_model': 'DIB-PEB-ASS',
+        'online_learning': False
     }
 
     for fileName in ['newkin-seq']:
